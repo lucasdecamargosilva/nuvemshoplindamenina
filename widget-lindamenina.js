@@ -312,6 +312,11 @@
         }
 
         /* ── Section label ── */
+        .q-prod-thumbs { display: flex; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+        .q-prod-thumb { width: 64px; height: 64px; border-radius: 12px; overflow: hidden; border: 2px solid var(--c-line); cursor: pointer; transition: 0.2s; flex-shrink: 0; background: var(--c-surface); }
+        .q-prod-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .q-prod-thumb:hover { border-color: var(--c-ink); }
+        .q-prod-thumb.q-selected { border-color: var(--c-ink); box-shadow: 0 0 0 2px var(--c-ink); }
         .q-section-label {
             font-family: var(--font-display);
             font-size: 20px; letter-spacing: 3px; text-transform: uppercase;
@@ -645,6 +650,12 @@
                             <div id="q-provas-restantes" class="q-provas-msg"></div>
                         </div>
 
+                        <!-- Seletor de imagem do produto -->
+                        <div id="q-photo-selector-group" style="display:none;">
+                            <p class="q-section-label">Escolha o modelo</p>
+                            <div id="q-prod-thumbs" class="q-prod-thumbs"></div>
+                        </div>
+
                         <!-- Photo section -->
                         <p class="q-section-label">Envie sua foto</p>
                         <div class="q-tip-box">
@@ -973,8 +984,27 @@
         function populateImageSelector() {
             const imgs = extractImages();
             const group = document.getElementById('q-photo-selector-group');
-            if (group) group.style.display = 'none';
+            const thumbs = document.getElementById('q-prod-thumbs');
             selectedProductImgUrl = imgs[0] || '';
+            if (!group || !thumbs) return;
+            // Só mostra o seletor quando há mais de 1 imagem do produto
+            if (imgs.length <= 1) { group.style.display = 'none'; return; }
+            thumbs.innerHTML = '';
+            imgs.forEach((src, i) => {
+                const div = document.createElement('div');
+                div.className = 'q-prod-thumb' + (i === 0 ? ' q-selected' : '');
+                const thumbImg = document.createElement('img');
+                thumbImg.src = src;
+                thumbImg.alt = 'Modelo ' + (i + 1);
+                div.appendChild(thumbImg);
+                div.onclick = () => {
+                    document.querySelectorAll('.q-prod-thumb').forEach(t => t.classList.remove('q-selected'));
+                    div.classList.add('q-selected');
+                    selectedProductImgUrl = src;
+                };
+                thumbs.appendChild(div);
+            });
+            group.style.display = 'block';
         }
 
         function openModal() {
