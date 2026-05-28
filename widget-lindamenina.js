@@ -1009,29 +1009,11 @@
         }
 
         function populateImageSelector() {
+            // Seletor desativado: usa direto a imagem da variação selecionada
             const imgs = extractImages();
-            const group = document.getElementById('q-photo-selector-group');
-            const thumbs = document.getElementById('q-prod-thumbs');
             selectedProductImgUrl = imgs[0] || '';
-            if (!group || !thumbs) return;
-            // Só mostra o seletor quando há mais de 1 imagem do produto
-            if (imgs.length <= 1) { group.style.display = 'none'; return; }
-            thumbs.innerHTML = '';
-            imgs.forEach((src, i) => {
-                const div = document.createElement('div');
-                div.className = 'q-prod-thumb' + (i === 0 ? ' q-selected' : '');
-                const thumbImg = document.createElement('img');
-                thumbImg.src = src;
-                thumbImg.alt = 'Modelo ' + (i + 1);
-                div.appendChild(thumbImg);
-                div.onclick = () => {
-                    document.querySelectorAll('.q-prod-thumb').forEach(t => t.classList.remove('q-selected'));
-                    div.classList.add('q-selected');
-                    selectedProductImgUrl = src;
-                };
-                thumbs.appendChild(div);
-            });
-            group.style.display = 'block';
+            const group = document.getElementById('q-photo-selector-group');
+            if (group) group.style.display = 'none';
         }
 
         function openModal() {
