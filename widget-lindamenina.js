@@ -875,16 +875,11 @@
             openModal();
         });
 
-        // Posiciona acima do botão de compra
-        const buyBtn = document.querySelector('.js-addtocart, .btn-add-to-cart, [data-component="product.add-to-cart"]');
-        if (buyBtn) {
-            buyBtn.parentNode.insertBefore(inlineBtn, buyBtn);
-        } else {
-            const variantsContainer = document.querySelector('.js-product-variants');
-            if (variantsContainer) {
-                variantsContainer.parentNode.insertBefore(inlineBtn, variantsContainer.nextSibling);
-            }
-        }
+        // Botão "Provador Virtual" acima do comprar DESATIVADO por enquanto.
+        // (mantém só o selo sobre a foto do produto). Para reativar, restaure este bloco:
+        // const buyBtn = document.querySelector('.js-addtocart, .btn-add-to-cart, [data-component="product.add-to-cart"]');
+        // if (buyBtn) { buyBtn.parentNode.insertBefore(inlineBtn, buyBtn); }
+        // else { const vc = document.querySelector('.js-product-variants'); if (vc) vc.parentNode.insertBefore(inlineBtn, vc.nextSibling); }
         const genBtn      = document.getElementById('q-btn-generate');
         const nextBtn     = null; // single-step flow — no next button
         const phoneStep   = null;
@@ -933,6 +928,22 @@
         }
 
         function extractImages() {
+            // Prioridade: imagem da variação selecionada (Nuvemshop marca com .js-active-variant)
+            const activeVariantImgs = Array.from(document.querySelectorAll('.js-product-slide-img.js-active-variant'));
+            if (activeVariantImgs.length) {
+                const variantUrls = [];
+                activeVariantImgs.forEach(img => {
+                    let src = img.getAttribute('data-srcset') || img.dataset?.srcset || img.getAttribute('data-src') || img.src;
+                    if (!src) return;
+                    src = src.split(',')[0].trim().split(' ')[0];
+                    if (src.startsWith('//')) src = 'https:' + src;
+                    if (!src || src.includes('data:image') || src.includes('empty-placeholder')) return;
+                    const up = upgradeImgUrl(src);
+                    if (!variantUrls.includes(up)) variantUrls.push(up);
+                });
+                if (variantUrls.length) return variantUrls.slice(0, 4);
+            }
+
             const containersSelectors = '.js-product-slide, .product-image-column, .js-swiper-product, [data-store^="product-image-"], .product__media-wrapper, .product-gallery__media, .product__media, .product-image-main, .product-media-container, [data-media-id], .product__media-item, .product-gallery, .product-single__media, .media-gallery, [data-component="product.gallery"], .swiper-slide:not(.swiper-slide-duplicate), .slider-wrapper';
             const possibleContainers = Array.from(document.querySelectorAll(containersSelectors));
             let imgEls = [];
