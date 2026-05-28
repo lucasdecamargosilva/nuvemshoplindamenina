@@ -188,7 +188,7 @@
             width: 100%; padding: 13px 16px;
             background: transparent; color: var(--c-ink);
             border: 1.5px solid var(--c-accent); border-radius: 8px;
-            font-family: var(--font-body), sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: none;
+            font-family: var(--font-body), sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; text-transform: none;
             cursor: pointer; transition: background 0.25s, color 0.25s;
             margin-bottom: 10px; box-sizing: border-box;
         }
@@ -637,7 +637,7 @@
                     <!-- Persistent header (all steps) -->
                     <div id="q-header-provador">
                         <h1>Provador virtual</h1>
-                        <img src="https://acdn-us.mitiendanube.com/stores/925/127/themes/common/logo-70805713-1749160344-ddaae9938b5d7c0f9713b9c02bd075f51749160344.png" alt="Óculos Linda Menina" style="height:48px;width:auto;filter:brightness(0);"/>
+                        <img src="https://acdn-us.mitiendanube.com/stores/925/127/themes/common/logo-70805713-1749160344-ddaae9938b5d7c0f9713b9c02bd075f51749160344.png" alt="Óculos Linda Menina" style="height:54px;width:auto;"/>
                     </div>
 
                     <!-- Main step -->
