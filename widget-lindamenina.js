@@ -153,7 +153,7 @@
 
     const styles = `
         /* ── Fontes ── */
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap');
 
         :root {
             --c-bg: #ffffff;
@@ -163,8 +163,8 @@
             --c-line: #e8e8e8;
             --c-accent: #111111;
             --c-danger: #cc3333;
-            --font-display: 'Bebas Neue', sans-serif;
-            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'Be Vietnam Pro', sans-serif;
+            --font-body: 'Be Vietnam Pro', sans-serif;
         }
 
         /* ── Trigger (selo sobre foto) ── */
@@ -188,7 +188,7 @@
             width: 100%; padding: 13px 16px;
             background: transparent; color: var(--c-ink);
             border: 1.5px solid var(--c-ink); border-radius: 8px;
-            font-family: 'Work Sans', var(--font-body), sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+            font-family: var(--font-body), sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
             cursor: pointer; transition: background 0.25s, color 0.25s;
             margin-bottom: 10px; box-sizing: border-box;
         }
@@ -771,7 +771,7 @@
 
         // Fontes (async, não bloqueia render)
         const fontLink = document.createElement('link');
-        fontLink.href = 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap';
+        fontLink.href = 'https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap';
         fontLink.rel = 'stylesheet';
         document.head.appendChild(fontLink);
 
