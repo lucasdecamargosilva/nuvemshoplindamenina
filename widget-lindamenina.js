@@ -188,7 +188,7 @@
             width: 100%; padding: 13px 16px;
             background: transparent; color: var(--c-ink);
             border: 1.5px solid var(--c-ink); border-radius: 8px;
-            font-family: var(--font-body), sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+            font-family: var(--font-body), sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: none;
             cursor: pointer; transition: background 0.25s, color 0.25s;
             margin-bottom: 10px; box-sizing: border-box;
         }
@@ -258,8 +258,8 @@
         #q-header-provador h1 {
             margin: 0;
             font-family: var(--font-display);
-            font-size: 28px; letter-spacing: 4px;
-            color: var(--c-ink); text-transform: uppercase;
+            font-size: 19px; letter-spacing: 0.3px;
+            color: var(--c-ink); text-transform: none;
             font-weight: 400; line-height: 1;
         }
 
@@ -272,7 +272,7 @@
         /* ── Labels & inputs ── */
         .q-field-label {
             display: block; font-size: 10px; font-weight: 600;
-            letter-spacing: 2px; text-transform: uppercase;
+            letter-spacing: 2px; text-transform: none;
             color: var(--c-muted); margin-bottom: 8px;
         }
         .q-phone-wrap { margin-bottom: 28px; }
@@ -319,7 +319,7 @@
         .q-prod-thumb.q-selected { border-color: var(--c-ink); box-shadow: 0 0 0 2px var(--c-ink); }
         .q-section-label {
             font-family: var(--font-display);
-            font-size: 20px; letter-spacing: 3px; text-transform: uppercase;
+            font-size: 13px; letter-spacing: 0.3px; text-transform: none;
             color: var(--c-ink); margin: 0 0 14px; font-weight: 400;
             text-align: center;
         }
@@ -427,8 +427,8 @@
             width: 100%; height: 52px;
             background: var(--c-ink); color: #fff;
             border: none; border-radius: 0;
-            font-family: var(--font-display); font-size: 17px;
-            letter-spacing: 3px; text-transform: uppercase;
+            font-family: var(--font-display); font-size: 13px;
+            letter-spacing: 0.3px; text-transform: none;
             cursor: pointer; transition: opacity 0.2s; box-sizing: border-box;
         }
         .q-btn-black:hover:not(:disabled) { opacity: 0.82; }
@@ -437,8 +437,8 @@
             width: 100%; height: 52px;
             background: transparent; color: var(--c-ink);
             border: 1.5px solid var(--c-line); border-radius: 0;
-            font-family: var(--font-display); font-size: 17px;
-            letter-spacing: 3px; text-transform: uppercase;
+            font-family: var(--font-display); font-size: 13px;
+            letter-spacing: 0.3px; text-transform: none;
             cursor: pointer; transition: border-color 0.2s, background 0.2s; box-sizing: border-box;
         }
         .q-btn-outline:hover { border-color: var(--c-ink); background: var(--c-surface); }
@@ -450,7 +450,7 @@
         }
         #q-step-pix h2 {
             font-family: var(--font-display); font-size: 24px;
-            letter-spacing: 3px; text-transform: uppercase; margin: 0; font-weight: 400;
+            letter-spacing: 3px; text-transform: none; margin: 0; font-weight: 400;
         }
         .q-pix-subtitle { font-size: 13px; color: var(--c-muted); margin: 0; line-height: 1.6; }
         .q-pix-qr { width: 180px; height: 180px; border: 1px solid var(--c-line); padding: 6px; margin: 0 auto; }
@@ -464,9 +464,9 @@
         .q-pix-copiacola button {
             height: 40px; padding: 0 14px; background: var(--c-ink); color: #fff;
             border: none; font-size: 10px; font-weight: 600; letter-spacing: 1px;
-            text-transform: uppercase; cursor: pointer;
+            text-transform: none; cursor: pointer;
         }
-        .q-pix-status { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--c-muted); }
+        .q-pix-status { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: none; color: var(--c-muted); }
         @keyframes q-pix-pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
         .q-pix-waiting { animation: q-pix-pulse 1.5s infinite ease-in-out; color: #d97706; }
         .q-pix-approved { color: #16a34a; }
@@ -492,7 +492,7 @@
         }
         .q-loading-t1 {
             font-family: var(--font-display); font-size: 18px; letter-spacing: 4px;
-            text-transform: uppercase; color: var(--c-ink);
+            text-transform: none; color: var(--c-ink);
             animation: q-alt-show 3.6s ease-in-out infinite;
         }
         .q-loading-t2 {
@@ -500,7 +500,7 @@
             text-decoration: none; opacity: 0;
         }
         .q-loading-t2 span {
-            font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+            font-size: 12px; letter-spacing: 2px; text-transform: none;
             color: var(--c-muted); font-family: var(--font-body);
         }
         .q-loading-t2 img { height: 16px; width: auto; opacity: 0.7; }
@@ -516,7 +516,7 @@
         .q-res-title {
             display: block;
             font-family: var(--font-display); font-size: 18px;
-            letter-spacing: 3px; text-transform: uppercase;
+            letter-spacing: 3px; text-transform: none;
             color: var(--c-ink); padding: 20px 28px 16px; margin: 0;
             border-bottom: 1px solid var(--c-line);
             text-align: center;
@@ -539,7 +539,7 @@
         #q-related-products { padding: 0 28px 28px; }
         #q-related-products h4 {
             font-family: var(--font-display); font-size: 13px;
-            letter-spacing: 3px; text-transform: uppercase;
+            letter-spacing: 3px; text-transform: none;
             color: var(--c-muted); margin: 20px 0 12px; font-weight: 400;
         }
         .q-related-grid {
@@ -605,7 +605,7 @@
         }
         #q-step-error h2 {
             font-family: var(--font-display); font-size: 22px;
-            letter-spacing: 3px; text-transform: uppercase; margin: 0; font-weight: 400;
+            letter-spacing: 3px; text-transform: none; margin: 0; font-weight: 400;
         }
         #q-step-error p { font-size: 13px; color: var(--c-muted); margin: 0; line-height: 1.6; }
 
@@ -615,7 +615,7 @@
             display: flex; align-items: center; justify-content: center; gap: 9px;
             flex-shrink: 0; border-top: 1px solid var(--c-line); text-decoration: none;
         }
-        .q-powered-footer span { font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--c-muted); }
+        .q-powered-footer span { font-size: 9.5px; letter-spacing: 1.5px; text-transform: none; color: var(--c-muted); }
         .q-quantic-logo { height: 20px; opacity: 0.7; }
     `;
 
@@ -636,7 +636,7 @@
 
                     <!-- Persistent header (all steps) -->
                     <div id="q-header-provador">
-                        <h1>Provador Virtual</h1>
+                        <h1>Provador virtual</h1>
                         <img src="https://acdn-us.mitiendanube.com/stores/925/127/themes/common/logo-70805713-1749160344-ddaae9938b5d7c0f9713b9c02bd075f51749160344.png" alt="Óculos Linda Menina" style="height:48px;width:auto;filter:brightness(0);"/>
                     </div>
 
