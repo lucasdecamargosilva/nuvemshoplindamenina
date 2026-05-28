@@ -787,48 +787,64 @@
         document.body.appendChild(modalContainer);
 
 
-        // ── Botão imagem PNG ──
-        const openBtn = document.createElement('button');
-        openBtn.className = 'q-btn-trigger-ia';
-        openBtn.id = 'q-open-ia';
-        openBtn.setAttribute('aria-label', 'Abrir Provador Virtual');
-        openBtn.innerHTML = stampImageHTML;
+        // ── Selo do provador em TODAS as fotos do produto ──
+        function openProvador(e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); }
+            const prodName = document.querySelector('h1.product__title,.product-single__title,h1')?.innerText || document.title;
+            applyProduct(detectProduct(prodName));
+            populateImageSelector();
+            openModal();
+        }
 
+        function makeSelo() {
+            const b = document.createElement('button');
+            b.className = 'q-btn-trigger-ia';
+            b.setAttribute('aria-label', 'Abrir Provador Virtual');
+            b.innerHTML = stampImageHTML;
+            b.addEventListener('click', openProvador);
+            return b;
+        }
 
-        const imgContainers = ['.js-product-slide', '.product-image-column', '.js-swiper-product', '[data-store^="product-image-"]', '.product__media-wrapper', '.product-gallery__media', '.product__media', '.product-image-main', '.product-media-container', '[data-media-id]', '.product__media-item', '.product-gallery', '.product-single__media', '.media-gallery'];
+        // Cada slide do carrossel recebe seu próprio selo
+        const slideSelectors = '.js-product-slide, .product__media-wrapper, .product-gallery__media, .product__media, .product__media-item, .product-single__media';
+        function placeSelosOnAllSlides() {
+            let placed = 0;
+            document.querySelectorAll(slideSelectors).forEach(el => {
+                if (el.closest('#q-modal-ia')) return;
+                if (!el.querySelector('img')) return;
+                if (el.querySelector(':scope > .q-btn-trigger-ia')) return; // já tem selo
+                if (window.getComputedStyle(el).position === 'static') el.style.position = 'relative';
+                el.appendChild(makeSelo());
+                placed++;
+            });
+            return placed;
+        }
 
-        function tryPlaceTriggerBtn() {
-            // 1ª prioridade: container que tenha <img> dentro (evita cair em slide de vídeo)
-            for (const sel of imgContainers) {
-                const els = document.querySelectorAll(sel);
-                for (const el of els) {
-                    if (el.querySelector('img')) {
+        function ensureSelos() {
+            const n = placeSelosOnAllSlides();
+            if (n === 0 && !document.querySelector('.q-btn-trigger-ia')) {
+                // fallback: container genérico de imagem
+                const fb = ['.product-image-column', '.js-swiper-product', '.product-image-main', '.media-gallery', '.product-gallery', '[data-store^="product-image-"]'];
+                for (const sel of fb) {
+                    const el = document.querySelector(sel);
+                    if (el && el.querySelector('img')) {
                         if (window.getComputedStyle(el).position === 'static') el.style.position = 'relative';
-                        el.appendChild(openBtn);
-                        return true;
+                        el.appendChild(makeSelo());
+                        break;
                     }
                 }
             }
-            // 2ª prioridade: qualquer container correspondente
-            for (const sel of imgContainers) {
-                const el = document.querySelector(sel);
-                if (el) {
-                    if (window.getComputedStyle(el).position === 'static') el.style.position = 'relative';
-                    el.appendChild(openBtn);
-                    return true;
-                }
-            }
-            return false;
         }
 
-        if (!tryPlaceTriggerBtn()) {
-            // Container não pronto ainda (ex: após F5 no mobile).
-            // Observa DOM até 5s aguardando o container aparecer.
-            const observer = new MutationObserver(() => {
-                if (tryPlaceTriggerBtn()) observer.disconnect();
-            });
-            observer.observe(document.body, { childList: true, subtree: true });
+        ensureSelos();
+        // Swiper adiciona/duplica slides depois — observa e coloca selo nos novos
+        const seloObserver = new MutationObserver(() => ensureSelos());
+        seloObserver.observe(document.body, { childList: true, subtree: true });
 
+        if (false) {
+            // bloco legado desativado
+            const observer = new MutationObserver(() => {});
+            const openBtn = makeSelo();
             setTimeout(() => {
                 observer.disconnect();
                 if (!openBtn.isConnected) {
@@ -1044,16 +1060,7 @@
         }
 
 
-        openBtn.onclick = (e) => {
-            if (e) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-            const prodName = document.querySelector('h1.product__title,.product-single__title,h1')?.innerText || document.title;
-            applyProduct(detectProduct(prodName));
-            populateImageSelector();
-            openModal();
-        };
+        // (handler do selo já é o openProvador, atacado em makeSelo)
 
 
         closeBtn.onclick = () => closeModal();
