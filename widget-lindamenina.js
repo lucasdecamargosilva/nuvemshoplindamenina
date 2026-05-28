@@ -55,8 +55,8 @@
     window.PROVOU_LEVOU_API_KEY = apiKey;
 
     const WEBHOOK_PROVA = 'https://n8n.segredosdodrop.com/webhook/gerador-oculos';
-    const WEBHOOK_PIX = 'https://n8n.segredosdodrop.com/webhook/lindamenina-pix';
-    const WEBHOOK_PIX_STATUS = 'https://n8n.segredosdodrop.com/webhook/lindamenina-pix-status';
+    const WEBHOOK_PIX = 'https://n8n.segredosdodrop.com/webhook/cacife-pix';
+    const WEBHOOK_PIX_STATUS = 'https://n8n.segredosdodrop.com/webhook/cacife-pix-status';
     const WEBHOOK_CHECK_LIMIT = 'https://n8n.segredosdodrop.com/webhook/lindamenina-check-limit';
     const SIZES_TOP = ['XXP', 'XP', 'P', 'M', 'G', 'XG', 'XXG', '3XG', '4XG', '5XG'];
     const SIZES_BOTTOM = ['36/XXP', '38/XP', '40/P', '42/M', '44/G', '46/XG', '48/XXG', '50/3XG', '52/4XG', '54/5XG'];
@@ -1310,7 +1310,7 @@
                     const resp = await fetch(WEBHOOK_PIX, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email: 'cliente@provoulevou.com.br', phone, loja: 'cacife', origin: location.origin })
+                        body: JSON.stringify({ email: 'cliente@provoulevou.com.br', phone, loja: 'lindamenina', origin: location.origin })
                     });
                     pix = await resp.json();
                     if (!pix.payment_id || !pix.qr_code) throw new Error('PIX inválido');
