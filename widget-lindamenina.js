@@ -157,11 +157,11 @@
 
         :root {
             --c-bg: #ffffff;
-            --c-surface: #f7f6f4;
-            --c-ink: #111111;
+            --c-surface: #fdeef4;
+            --c-ink: #3a2b32;
             --c-muted: #999;
-            --c-line: #e8e8e8;
-            --c-accent: #111111;
+            --c-line: #f3d2e0;
+            --c-accent: #e08bae;
             --c-danger: #cc3333;
             --font-display: 'Be Vietnam Pro', sans-serif;
             --font-body: 'Be Vietnam Pro', sans-serif;
@@ -187,12 +187,12 @@
             display: flex; align-items: center; justify-content: center; gap: 7px;
             width: 100%; padding: 13px 16px;
             background: transparent; color: var(--c-ink);
-            border: 1.5px solid var(--c-ink); border-radius: 8px;
+            border: 1.5px solid var(--c-accent); border-radius: 8px;
             font-family: var(--font-body), sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: none;
             cursor: pointer; transition: background 0.25s, color 0.25s;
             margin-bottom: 10px; box-sizing: border-box;
         }
-        .q-btn-inline-provador:hover { background: var(--c-ink); color: #fff; }
+        .q-btn-inline-provador:hover { background: var(--c-accent); color: #fff; }
         .q-btn-inline-provador svg { width: 14px; height: 14px; flex-shrink: 0; }
 
         /* ── Modal overlay ── */
@@ -388,7 +388,7 @@
         /* Corner marks — clean editorial style */
         .q-face-corner {
             position: absolute; width: 20px; height: 20px;
-            border-color: var(--c-ink); border-style: solid;
+            border-color: var(--c-accent); border-style: solid;
             transition: border-color 0.2s;
         }
         .q-face-corner-tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
@@ -425,7 +425,7 @@
         /* ── CTA buttons ── */
         .q-btn-black {
             width: 100%; height: 52px;
-            background: var(--c-ink); color: #fff;
+            background: var(--c-accent); color: #fff;
             border: none; border-radius: 0;
             font-family: var(--font-display); font-size: 13px;
             letter-spacing: 0.3px; text-transform: none;
@@ -462,7 +462,7 @@
             outline: none; min-width: 0;
         }
         .q-pix-copiacola button {
-            height: 40px; padding: 0 14px; background: var(--c-ink); color: #fff;
+            height: 40px; padding: 0 14px; background: var(--c-accent); color: #fff;
             border: none; font-size: 10px; font-weight: 600; letter-spacing: 1px;
             text-transform: none; cursor: pointer;
         }
@@ -507,7 +507,7 @@
         .q-loading-bar { height: 1px; background: var(--c-line); width: 100%; position: relative; overflow: hidden; }
         .q-loading-bar > div {
             position: absolute; top: 0; left: 0; height: 100%; width: 35%;
-            background: var(--c-ink); animation: q-slide 1.4s infinite linear;
+            background: var(--c-accent); animation: q-slide 1.4s infinite linear;
         }
 
         /* ── Result ── */
