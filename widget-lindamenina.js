@@ -1060,15 +1060,18 @@
             document.querySelector('.q-card-ia').classList.remove('is-result');
             userPhoto = null;
             pixPaymentId = null;
+            cameraInput.value = '';
+            galleryInput.value = '';
             preImg.style.display = 'none';
+            preImg.src = '';
             if (facePlaceholder) facePlaceholder.style.display = 'flex';
             checkFields();
         };
 
-        // Camera / gallery buttons
-        document.getElementById('q-btn-camera').onclick = function() { cameraInput.click(); };
-        document.getElementById('q-btn-gallery').onclick = function() { galleryInput.click(); };
-        document.getElementById('q-face-frame').onclick = function() { galleryInput.click(); };
+        // Camera / gallery buttons — reseta value pra permitir re-selecionar a mesma foto
+        document.getElementById('q-btn-camera').onclick = function() { cameraInput.value = ''; cameraInput.click(); };
+        document.getElementById('q-btn-gallery').onclick = function() { galleryInput.value = ''; galleryInput.click(); };
+        document.getElementById('q-face-frame').onclick = function() { galleryInput.value = ''; galleryInput.click(); };
 
         function loadRelatedProducts() {
             var grid = document.getElementById('q-related-grid');
