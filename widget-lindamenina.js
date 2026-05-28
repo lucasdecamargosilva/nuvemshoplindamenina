@@ -891,11 +891,16 @@
             openModal();
         });
 
-        // Botão "Provador Virtual" acima do comprar DESATIVADO por enquanto.
-        // (mantém só o selo sobre a foto do produto). Para reativar, restaure este bloco:
-        // const buyBtn = document.querySelector('.js-addtocart, .btn-add-to-cart, [data-component="product.add-to-cart"]');
-        // if (buyBtn) { buyBtn.parentNode.insertBefore(inlineBtn, buyBtn); }
-        // else { const vc = document.querySelector('.js-product-variants'); if (vc) vc.parentNode.insertBefore(inlineBtn, vc.nextSibling); }
+        // Posiciona acima do botão de compra
+        const buyBtn = document.querySelector('.js-addtocart, .btn-add-to-cart, [data-component="product.add-to-cart"]');
+        if (buyBtn) {
+            buyBtn.parentNode.insertBefore(inlineBtn, buyBtn);
+        } else {
+            const variantsContainer = document.querySelector('.js-product-variants');
+            if (variantsContainer) {
+                variantsContainer.parentNode.insertBefore(inlineBtn, variantsContainer.nextSibling);
+            }
+        }
         const genBtn      = document.getElementById('q-btn-generate');
         const nextBtn     = null; // single-step flow — no next button
         const phoneStep   = null;
