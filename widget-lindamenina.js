@@ -891,10 +891,10 @@
             openModal();
         });
 
-        // Posiciona acima do botão de compra
+        // Posiciona ABAIXO do botão de compra
         const buyBtn = document.querySelector('.js-addtocart, .btn-add-to-cart, [data-component="product.add-to-cart"]');
         if (buyBtn) {
-            buyBtn.parentNode.insertBefore(inlineBtn, buyBtn);
+            buyBtn.parentNode.insertBefore(inlineBtn, buyBtn.nextSibling);
         } else {
             const variantsContainer = document.querySelector('.js-product-variants');
             if (variantsContainer) {
