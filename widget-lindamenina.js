@@ -16,36 +16,7 @@
     }
 
 
-    // ─── SEO BACKLINK BADGE (mini logo discreto pro crawler do Google) ───
-    (function() {
-        function injectPLBadge() {
-            try {
-                if (document.querySelector('.pl-seo-badge')) return;
-                var path = window.location.pathname;
-                var isProduct = path.includes('/produto/') || path.includes('/produtos/') || path.includes('/products/') || path.includes('/p/') || document.querySelector('meta[property="og:type"][content="product"]');
-                if (!isProduct) return;
-                var b = document.createElement('div');
-                b.className = 'pl-seo-badge';
-                b.style.cssText = 'text-align:center;padding:4px 0;margin:0;opacity:0.5;line-height:1;';
-                var a = document.createElement('a');
-                a.href = 'https://provoulevou.com.br?utm_source=widget&utm_medium=lojista&utm_campaign=cacife';
-                a.target = '_blank';
-                a.rel = 'noopener';
-                a.title = 'Provador Virtual de Óculos por Provou Levou';
-                a.style.cssText = 'display:inline-block;text-decoration:none;border:0;outline:0;';
-                var img = document.createElement('img');
-                img.src = 'https://i.ibb.co/MD3B4FQf/Logo-provou-preto-1.png';
-                img.alt = 'Provador Virtual de Óculos por Provou Levou';
-                img.style.cssText = 'height:12px;width:auto;border:0;display:block;';
-                a.appendChild(img);
-                b.appendChild(a);
-                document.body.appendChild(b);
-            } catch(e) {}
-        }
-        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', injectPLBadge);
-        else injectPLBadge();
-        setTimeout(injectPLBadge, 2500);
-    })();
+    // SEO badge removido — Linda Menina é white-label
 
 
     // ===============================================
@@ -621,7 +592,7 @@
 
 
     // ─── IMAGEM DO BOTÃO (trigger) ─────────────────────────────────────────────
-    const stampImageHTML = `<img src="https://cdn.shopify.com/s/files/1/0636/6334/1746/files/logo_provador.png?v=1772494793" alt="Provador Virtual" style="width:100%;height:100%;object-fit:contain;">`;
+    const stampImageHTML = `<img src="https://acdn-us.mitiendanube.com/stores/925/127/themes/common/logo-70805713-1749160344-ddaae9938b5d7c0f9713b9c02bd075f51749160344.png" alt="Provador Virtual" style="width:100%;height:100%;object-fit:contain;background:#fff;border-radius:50%;padding:8px;box-sizing:border-box;">`;
 
 
 
@@ -701,7 +672,7 @@
                     <div id="q-step-pix">
                         <h2>Prova Extra</h2>
                         <p class="q-pix-subtitle">Limite de 3 provas atingido.<br>Pague R$1 via PIX para mais uma:</p>
-                        <p style="font-size: 11px; color: var(--c-muted); margin: 8px 0 0; line-height: 1.5; text-align: center;">&#8505;&#65039; Cobran&#231;a feita pela Provou Levou, n&#227;o pela loja</p>
+                        <p style="font-size: 11px; color: var(--c-muted); margin: 8px 0 0; line-height: 1.5; text-align: center;">&#8505;&#65039; Cobran&#231;a feita pelo nosso parceiro de pagamentos, n&#227;o pela loja</p>
                         <div class="q-pix-qr"><img id="q-pix-qr-img" alt="QR Code PIX"></div>
                         <div class="q-pix-copiacola">
                             <input type="text" id="q-pix-code" readonly placeholder="C&#243;digo PIX...">
@@ -715,10 +686,6 @@
                     <div id="q-loading-box">
                         <div class="q-loading-texts">
                             <div class="q-loading-t1">Gerando sua prova...</div>
-                            <a href="https://provoulevou.com.br?utm_source=widget&utm_medium=lojista&utm_campaign=cacife" target="_blank" class="q-loading-t2">
-                                <span>Powered by</span>
-                                <img src="https://i.ibb.co/MD3B4FQf/Logo-provou-preto-1.png" alt="Provou Levou">
-                            </a>
                         </div>
                         <div class="q-loading-bar"><div></div></div>
                     </div>
@@ -750,10 +717,6 @@
                     </div>
 
                 </div>
-                <a href="https://provoulevou.com.br?utm_source=widget&utm_medium=lojista&utm_campaign=cacife" target="_blank" class="q-powered-footer">
-                    <span>Powered by</span>
-                    <img src="https://i.ibb.co/MD3B4FQf/Logo-provou-preto-1.png" class="q-quantic-logo" alt="Provou Levou">
-                </a>
             </div>
         </div>
     `;
