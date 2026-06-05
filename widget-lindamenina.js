@@ -462,7 +462,7 @@
             display: flex; align-items: center; justify-content: center; gap: 8px;
         }
         .q-loading-t1 {
-            font-family: var(--font-display); font-size: 18px; letter-spacing: 4px;
+            font-family: var(--font-display); font-size: 13px; letter-spacing: 2.5px;
             text-transform: none; color: var(--c-ink);
             animation: q-alt-show 3.6s ease-in-out infinite;
         }
@@ -470,11 +470,7 @@
             animation: q-alt-hide 3.6s ease-in-out infinite;
             text-decoration: none; opacity: 0;
         }
-        .q-loading-t2 span {
-            font-size: 12px; letter-spacing: 2px; text-transform: none;
-            color: var(--c-muted); font-family: var(--font-body);
-        }
-        .q-loading-t2 img { height: 16px; width: auto; opacity: 0.7; }
+        .q-loading-t2 img { height: 32px; width: auto; opacity: 0.85; }
         .q-loading-bar { height: 1px; background: var(--c-line); width: 100%; position: relative; overflow: hidden; }
         .q-loading-bar > div {
             position: absolute; top: 0; left: 0; height: 100%; width: 35%;
@@ -608,7 +604,7 @@
                     <!-- Persistent header (all steps) -->
                     <div id="q-header-provador">
                         <h1>Provador virtual</h1>
-                        <img src="https://acdn-us.mitiendanube.com/stores/925/127/themes/common/logo-70805713-1749160344-ddaae9938b5d7c0f9713b9c02bd075f51749160344.png" alt="Óculos Linda Menina" style="height:54px;width:auto;"/>
+                        <img src="https://acdn-us.mitiendanube.com/stores/925/127/themes/common/logo-70805713-1749160344-ddaae9938b5d7c0f9713b9c02bd075f51749160344.png" alt="Óculos Linda Menina" style="height:44px;width:auto;"/>
                     </div>
 
                     <!-- Main step -->
@@ -686,6 +682,9 @@
                     <div id="q-loading-box">
                         <div class="q-loading-texts">
                             <div class="q-loading-t1">Gerando sua prova...</div>
+                            <div class="q-loading-t2">
+                                <img src="https://acdn-us.mitiendanube.com/stores/925/127/themes/common/logo-70805713-1749160344-ddaae9938b5d7c0f9713b9c02bd075f51749160344.png" alt="Óculos Linda Menina">
+                            </div>
                         </div>
                         <div class="q-loading-bar"><div></div></div>
                     </div>
