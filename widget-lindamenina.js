@@ -592,7 +592,7 @@
 
 
     // ─── IMAGEM DO BOTÃO (trigger) ─────────────────────────────────────────────
-    const stampImageHTML = `<img src="https://acdn-us.mitiendanube.com/stores/925/127/themes/common/logo-70805713-1749160344-ddaae9938b5d7c0f9713b9c02bd075f51749160344.png" alt="Provador Virtual" style="width:100%;height:100%;object-fit:contain;background:#fff;border-radius:50%;padding:8px;box-sizing:border-box;">`;
+    const stampImageHTML = `<img src="https://cdn.shopify.com/s/files/1/0636/6334/1746/files/logo_provador.png?v=1772494793" alt="Provador Virtual" style="width:100%;height:100%;object-fit:contain;">`;
 
 
 
