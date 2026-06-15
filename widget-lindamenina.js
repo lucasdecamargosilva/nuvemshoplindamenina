@@ -531,11 +531,11 @@
             color: var(--c-ink); text-align: left;
         }
         .q-fakebuy {
-            position: fixed; right: 16px; top: 16px; z-index: 2147483000;
+            position: fixed; left: 18px; bottom: 18px; z-index: 2147483000;
             background: var(--c-bg, #fff); color: var(--c-ink); border: 1px solid var(--c-line); border-radius: 10px;
             box-shadow: 0 8px 28px -6px rgba(0,0,0,.28); padding: 11px 14px;
             display: flex; align-items: center; gap: 10px; max-width: 290px;
-            font-family: var(--font-body); opacity: 0; transform: translateY(-14px);
+            font-family: var(--font-body); opacity: 0; transform: translateY(14px);
             pointer-events: none; transition: opacity .35s ease, transform .35s ease;
         }
         .q-fakebuy.show { opacity: 1; transform: translateY(0); }
@@ -911,8 +911,7 @@
         var sc = document.getElementById('q-scarcity');
         var scn = document.getElementById('q-scarcity-n');
         if (sc && scn && (prodName || '').trim()) { scn.textContent = scarcityCount(prodName); sc.style.display = 'flex'; }
-        // Notificações de compra
-        startFakeBuy();
+        // Notificações de compra: desativadas nesta loja (ela já tem a própria)
         btn.style.display = 'flex';
         if (trust) trust.style.display = 'flex';
         btn.onclick = buyNow;
