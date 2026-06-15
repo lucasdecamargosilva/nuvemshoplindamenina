@@ -1699,7 +1699,9 @@ const fd = new FormData();
                 const data = await resp.json();
                 if (data.limited) {
                     genBtn.disabled = false;
-                    createPixAndPoll();
+                    // Sem PIX nesta loja: ao bater o limite, mostra mensagem (nao cobra)
+                    var _m = document.getElementById('q-provas-restantes');
+                    if (_m) { _m.textContent = 'Você já usou suas provas grátis de hoje. Volte amanhã! 😊'; _m.classList.add('is-warn'); }
                     return;
                 }
             } catch (_) {
