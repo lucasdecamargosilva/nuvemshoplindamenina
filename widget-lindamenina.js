@@ -497,7 +497,7 @@
 
         #q-result-actions-col {
             display: flex; flex-direction: column; gap: 8px;
-            padding: 20px 28px 0;
+            padding: 20px 28px 26px;
         }
         .q-res-mobile-only { margin: 0; }
 
