@@ -196,7 +196,7 @@
         .q-close-ia {
             position: absolute; top: 18px; right: 18px;
             background: none; border: none;
-            font-size: 26px; font-weight: 300; color: var(--c-muted);
+            font-size: 20px; font-weight: 300; color: var(--c-muted);
             cursor: pointer; z-index: 10; line-height: 1; padding: 4px 6px;
             transition: color 0.2s;
         }
@@ -419,7 +419,7 @@
             padding: 36px 28px; flex-direction: column; gap: 16px; align-items: center;
         }
         #q-step-pix h2 {
-            font-family: var(--font-display); font-size: 24px;
+            font-family: var(--font-display); font-size: 19px;
             letter-spacing: 3px; text-transform: none; margin: 0; font-weight: 400;
         }
         .q-pix-subtitle { font-size: 13px; color: var(--c-muted); margin: 0; line-height: 1.6; }
@@ -481,7 +481,7 @@
 
         .q-res-title {
             display: block;
-            font-family: var(--font-display); font-size: 18px;
+            font-family: var(--font-display); font-size: 15px;
             letter-spacing: 3px; text-transform: uppercase;
             color: var(--c-ink); padding: 20px 28px 16px; margin: 0;
             border-bottom: 1px solid var(--c-line);
@@ -631,7 +631,7 @@
             padding: 52px 28px;
         }
         #q-step-error h2 {
-            font-family: var(--font-display); font-size: 22px;
+            font-family: var(--font-display); font-size: 18px;
             letter-spacing: 3px; text-transform: none; margin: 0; font-weight: 400;
         }
         #q-step-error p { font-size: 13px; color: var(--c-muted); margin: 0; line-height: 1.6; }
