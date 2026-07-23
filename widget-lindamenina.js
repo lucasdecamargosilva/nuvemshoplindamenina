@@ -13,6 +13,8 @@
         var local = nums.length === 11 ? nums.slice(3) : nums.slice(2);
         if (/^(\d)\1+$/.test(local)) { setErr('N\u00famero n\u00e3o parece real — confira'); return false; }
         if (/(\d)\1{5,}/.test(local)) { setErr('N\u00famero n\u00e3o parece real — confira'); return false; }
+        // so 1-2 digitos distintos = fake (99996666, 54545454, 56565656)
+        if (new Set(local).size <= 2) { setErr('N\u00famero n\u00e3o parece real — confira'); return false; }
         if (/^(?:01234567|12345678|23456789|34567890|98765432|87654321|76543210|0123456789|1234567890)/.test(local)) { setErr('N\u00famero n\u00e3o parece real — confira'); return false; }
         return true;
     }
@@ -1614,14 +1616,6 @@
         }
 
         async function createPixAndPoll() {
-            /* PIX_DESATIVADO: prova extra via PIX removida - mostra so mensagem de volte amanha. */
-            try {
-                var _ph = document.getElementById('q-step-photo'); if (_ph) _ph.style.display = 'none';
-                var _lb = document.getElementById('q-loading-box'); if (_lb) _lb.style.display = 'none';
-                var _pix = document.getElementById('q-step-pix');
-                if (_pix) { _pix.style.display = 'block'; _pix.innerHTML = '<h2>Limite de hoje atingido</h2><p class="q-pix-subtitle" style="text-align:center;">Voc&ecirc; j&aacute; usou suas provas de hoje.<br>Volte amanh&atilde; para experimentar mais &oacute;culos! &#128522;</p>'; }
-            } catch (e) {}
-            return;
             showPixScreen();
             const phone = '55' + phoneInput.value.replace(/\D/g, '');
             try {
@@ -1881,11 +1875,9 @@ const fd = new FormData();
                 });
                 const data = await resp.json();
                 if (data.limited) {
-            try { document.getElementById('q-loading-box').style.display = 'none'; } catch (_) {}
+                    try { document.getElementById('q-loading-box').style.display = 'none'; } catch (_) {}
                     genBtn.disabled = false;
-                    // Sem PIX nesta loja: ao bater o limite, mostra mensagem (nao cobra)
-                    var _m = document.getElementById('q-provas-restantes');
-                    if (_m) { _m.textContent = 'Você já usou suas provas grátis de hoje. Volte amanhã! 😊'; _m.classList.add('is-warn'); }
+                    createPixAndPoll();
                     return;
                 }
             } catch (_) {
