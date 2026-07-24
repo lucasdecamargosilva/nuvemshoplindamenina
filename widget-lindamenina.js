@@ -1615,12 +1615,13 @@
             } catch(_) {}
         }
 
-        async function createPixAndPoll() {
+        async function createPixAndPoll(_isRetry) {
             showPixScreen();
             const phone = '55' + phoneInput.value.replace(/\D/g, '');
             try {
                 let pix;
-                const pending = _pixLoadPending(phone);
+                // Numa retry, ignora o pendente (foi ele que deu QR quebrado).
+                const pending = _isRetry ? null : _pixLoadPending(phone);
                 // Só reaproveita pendente COMPLETO (com QR base64). Pendente parcial
                 // (base64 vazio) geraria 'data:image/png;base64,undefined' = QR quebrado.
                 if (pending && pending.qr_code_base64) {
@@ -1638,7 +1639,13 @@
                     _pixSavePending(phone, pix.payment_id, pix.qr_code, pix.qr_code_base64);
                 }
 
-                document.getElementById('q-pix-qr-img').src = 'data:image/png;base64,' + pix.qr_code_base64;
+                const _qrImg = document.getElementById('q-pix-qr-img');
+                // Auto-recuperação: se o QR não carregar, limpa e refaz UMA vez.
+                _qrImg.onerror = function () {
+                    _qrImg.onerror = null;
+                    if (!_isRetry) { _pixClearPending(phone); stopPixPolling(); createPixAndPoll(true); }
+                };
+                _qrImg.src = 'data:image/png;base64,' + pix.qr_code_base64;
                 document.getElementById('q-pix-code').value = pix.qr_code;
 
                 // Polling a cada 3s por até 5min
