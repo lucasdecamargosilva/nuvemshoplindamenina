@@ -723,7 +723,7 @@
                         <!-- Terms -->
                         <label class="q-terms-row">
                             <input type="checkbox" id="q-accept-terms">
-                            <span>Concordo com os <a href="https://www.oculoslindamenina.com/termos-e-condicoes-de-compras/" target="_blank">Termos e Condi&#231;&#245;es</a></span>
+                            <span>Concordo com os <a href="http://provoulevou.com.br/termos.html" target="_blank">Termos e Condi&#231;&#245;es</a></span>
                         </label>
 
                         <div id="q-validation-hint" class="q-validation-hint"></div>
